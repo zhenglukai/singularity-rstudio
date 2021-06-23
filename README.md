@@ -61,4 +61,4 @@ singularity exec --cleanenv rstudio4.0.5.sif \
 
 ## License
 
-
+This repo is distributed under the GNU-GPL3 license. See the LICENSE file for more details.
