@@ -1,8 +1,8 @@
 # Singularity RStudio Server
 
-This repo contains a Singularity file that builds upon the [rocker RStudio docker image](https://hub.docker.com/r/rocker/rstudio). It has several additional linux dependencies installed that are required for common bioinformatics packages (openssl, libproj, libbz2, etc). If you have others you'd like added, feel free to open a PR (or make your own fork and add whatever you need).
+This repo contains a Singularity file that contains R 4.1 and RStudio 1.4.1717. It has several additional linux dependencies installed that are required for common bioinformatics packages (openssl, libproj, libbz2, etc). If you have others you'd like added, feel free to open a PR (or make your own fork and add whatever you need).
 
-The Singularity image for this can be pulled via `singularity pull library://j-andrews7/default/rstudio:4.0.5`.
+The Singularity image for this can be pulled via `singularity pull library://j-andrews7/default/rstudio:4.1.0`.
 
 This was mostly configured to run on HPCs in interactive jobs where users likely don't have the appropriate permissions for RStudio server to work properly. This requires a number of bindings to be made to the image and a secure cookie file to be provided. The cookie file can be produced with:
 
@@ -30,7 +30,7 @@ END
 # personal libraries from any R installation in the host environment
 cat > ${workdir}/rsession.sh <<END
 #!/bin/sh
-export R_LIBS_USER=${HOME}/R/rocker-rstudio/4.0
+export R_LIBS_USER=${HOME}/R/rocker-rstudio/4.1
 exec rsession "\${@}"
 END
 
@@ -53,7 +53,7 @@ cat 1>&2 <<END
 "Running RStudio at $ADD:$PORT"
 END
 
-singularity exec --cleanenv rstudio4.0.5.sif \
+singularity exec --cleanenv rstudio_4.1.0.sif \
     rserver --www-port ${PORT} \
             --rsession-path=/etc/rstudio/rsession.sh
             --secure-cookie-key-file ${workdir}/tmp/rstudio-server/secure-cookie-key
