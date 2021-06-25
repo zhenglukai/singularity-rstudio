@@ -30,13 +30,13 @@ END
 # personal libraries from any R installation in the host environment
 cat > ${workdir}/rsession.sh <<END
 #!/bin/sh
-export R_LIBS_USER=${HOME}/R/rocker-rstudio/4.1
+export R_LIBS_USER=${HOME}/R/rstudio/4.1
 exec rsession "\${@}"
 END
 
 chmod +x ${workdir}/rsession.sh
 
-export SINGULARITY_BIND="/research:/research,${workdir}/run:/run,${workdir}/tmp:/tmp,${workdir}/database.conf:/etc/rstudio/database.conf,${workdir}/rsession.sh:/etc/rstudio/rsession.sh,${workdir}/var/lib/rstudio-server:/var/lib/rstudio-server"
+export SINGULARITY_BIND="${workdir}/run:/run,${workdir}/tmp:/tmp,${workdir}/database.conf:/etc/rstudio/database.conf,${workdir}/rsession.sh:/etc/rstudio/rsession.sh,${workdir}/var/lib/rstudio-server:/var/lib/rstudio-server"
 
 # Do not suspend idle sessions.
 # Alternative to setting session-timeout-minutes=0 in /etc/rstudio/rsession.conf
