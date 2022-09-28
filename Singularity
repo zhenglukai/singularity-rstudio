@@ -64,7 +64,8 @@ From: ubuntu:20.04
     g++ \
     libopenblas-base \
     liblapack3 \
-    libgeos-dev
+    libgeos-dev \
+    jags
 
   # Disable session timeout
   # echo "session-timeout-minutes=0" > /etc/rstudio/rsession.conf
