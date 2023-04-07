@@ -70,7 +70,8 @@ From: ubuntu:20.04
     jags \
     git-all \
     libudunits2-dev \
-    libmagick++-dev
+    libmagick++-dev \
+    libhdf5-dev
 
   # Disable session timeout
   # echo "session-timeout-minutes=0" > /etc/rstudio/rsession.conf
@@ -86,7 +87,7 @@ From: ubuntu:20.04
   wget \
     --no-verbose \
     -O rstudio-server.deb \
-    "https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2022.12.0-353-amd64.deb"
+    "https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2023.03.0-386-amd64.deb"
   gdebi -n rstudio-server.deb
   rm -f rstudio-server.deb
 
