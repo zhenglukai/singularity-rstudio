@@ -29,7 +29,7 @@ From: ubuntu:20.04
   add-apt-repository "deb http://mirror.math.princeton.edu/pub/ubuntu/ focal-backports main restricted universe"
   apt-get update
 
-  apt-get policy r-base
+  apt-cache policy r-base
 
   # Install dependencies.
   aptitude install -y \
