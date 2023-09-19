@@ -26,7 +26,10 @@ From: ubuntu:20.04
   #echo "deb https://cran.r-project.org/bin/linux/ubuntu focal-cran40/" > /etc/apt/sources.list.d/r.list
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
   add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/"
+  add-apt-repository "deb http://mirror.math.princeton.edu/pub/ubuntu/ focal-backports main restricted universe"
   apt-get update
+
+  apt-get policy r-base
 
   # Install dependencies.
   aptitude install -y \
@@ -71,6 +74,7 @@ From: ubuntu:20.04
     git-all \
     libudunits2-dev \
     libmagick++-dev \
+    libgdal-dev \
     libhdf5-dev
 
   # Disable session timeout
