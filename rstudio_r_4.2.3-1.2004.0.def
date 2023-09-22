@@ -33,9 +33,9 @@ From: ubuntu:20.04
 
   # Install dependencies.
   aptitude install -y \
-    r-base \
-    r-base-core \
-    r-base-dev \
+    r-base=4.2.3-1.2004.0 \
+    r-base-core=4.2.3-1.2004.0 \
+    r-base-dev=4.2.3-1.2004.0 \
     r-recommended \
     r-base-html \
     r-doc-html \
