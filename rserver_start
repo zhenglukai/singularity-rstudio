@@ -8,11 +8,11 @@ provider=sqlite
 directory=/var/lib/rstudio-server
 END
 
-# Set R_LIBS_USER to a specific path to avoid conflicts with
-# personal libraries from any R installation in the host environment
+# Set R_LIBS_USER
+MyRLib="${R_LIBS_USER:-${HOME}/R/rstudio/4.0.5}"
 cat > ${workdir}/rsession.sh <<END
 #!/bin/sh
-export R_LIBS_USER=${HOME}/R/rstudio/4.0.5
+export R_LIBS_USER=${MyRLib}
 exec rsession "\${@}"
 END
 
@@ -32,10 +32,11 @@ readonly PORT=$(python -c 'import socket; s=socket.socket(); s.bind(("", 0)); pr
 readonly ADD=$(nslookup `hostname` | grep -i address | awk -F" " '{print $2}' | awk -F# '{print $1}' | tail -n 1)
 
 cat 1>&2 <<END
-"Running RStudio at $ADD:$PORT"
+"Running RStudio at cluster.isd.med.uni-muenchen.de:$PORT"
 END
 
-singularity exec --cleanenv -c -W ${workdir} --bind ${HOME}:/home/$USER,/research:/research,${workdir}/run:/run,${workdir}/tmp:/tmp,${workdir}/database.conf:/etc/rstudio/database.conf,${workdir}/rsession.sh:/etc/rstudio/rsession.sh,${workdir}/var/lib/rstudio-server:/var/lib/rstudio-server rstudio_4.0.5.sif \
+module load singularity/3.6.1
+singularity exec --cleanenv -c -W ${workdir} --bind ${HOME}:/home/$USER,/cluster:/cluster,/cluster2:/cluster2,${workdir}/run:/run,${workdir}/tmp:/tmp,${workdir}/database.conf:/etc/rstudio/database.conf,${workdir}/rsession.sh:/etc/rstudio/rsession.sh,${workdir}/var/lib/rstudio-server:/var/lib/rstudio-server /cluster2/zhenglk/soft/containers/rstudio_4.0.5.sif \
     rserver --www-port ${PORT} \
             --rsession-path=/etc/rstudio/rsession.sh \
             --secure-cookie-key-file ${workdir}/tmp/rstudio-server/secure-cookie-key \
