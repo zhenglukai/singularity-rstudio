@@ -1,3 +1,18 @@
+## Change notes
+
+In this fork, changes have been made to run the Singularity image `rstudio_r_4.0.5-1.2004.0.def` on the [ISD HPC Cluster](cluster.isd.med.uni-muenchen.de). So no real feature improvements. Credits to the original author [@j-andrews7](https://github.com/j-andrews7).
+
+```
+  ___  ____   ____    _   _  ____    ____         _              _              
+ |_ _|/ ___| |  _ \  | | | ||  _ \  / ___|   ___ | | _   _  ___ | |_  ___  _ __ 
+  | | \___ \ | | | | | |_| || |_) || |      / __|| || | | |/ __|| __|/ _ \| '__|
+  | |  ___) || |_| | |  _  ||  __/ | |___  | (__ | || |_| |\__ \| |_|  __/| |   
+ |___||____/ |____/  |_| |_||_|     \____|  \___||_| \__,_||___/ \__|\___||_|   
+                        cluster.isd.med.uni-muenchen.de  
+```
+
+-----
+
 # Singularity RStudio Server
 
 This repo contains Singularity files that contains specific R versions and RStudio. Each also has several additional linux dependencies installed that are required for common bioinformatics packages (openssl, libproj, libbz2, etc). If you have others you'd like added, feel free to open a PR (or make your own fork and add whatever you need).
