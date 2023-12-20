@@ -1,6 +1,6 @@
 ## Change notes
 
-In this fork, changes have been made to run the Singularity image `rstudio_r_4.0.5-1.2004.0.def` on the [ISD HPC Cluster](https://cluster.isd.med.uni-muenchen.de). So no real feature improvements. Credits to the original author [@j-andrews7](https://github.com/j-andrews7).
+In this fork, changes have been made to run the Singularity image `rstudio_r_4.0.5-1.2004.0.def` on the [ISD HPC Cluster](http://cluster.isd.med.uni-muenchen.de). So no real feature improvements. Credits to the original author [@j-andrews7](https://github.com/j-andrews7).
 
 ```
   ___  ____   ____    _   _  ____    ____         _              _              
